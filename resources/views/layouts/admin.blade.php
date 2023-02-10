@@ -105,7 +105,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Sb-Admin</span>
+                        <span>Copyright &copy; DALI-GHASS</span>
                     </div>
                 </div>
             </footer>

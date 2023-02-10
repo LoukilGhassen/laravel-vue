@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('customer') }}
+                    {{ __('Client') }}
                 </h6>
                 <div class="ml-auto">
                     @can('customer_create')
@@ -18,7 +18,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New customer') }}</span>
+                        <span class="text">{{ __('Nouveau client') }}</span>
                     </a>
                     @endcan
                 </div>
@@ -31,12 +31,12 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
-                                <th>Full Name</th>
-                                <th>Phone</th>
+                                <th>Nº</th>
+                                <th>Nom et prénom</th>
+                                <th>Téléphone</th>
                                 <th>Email</th>
-                                <th>Address</th>
-                                <th>Country</th>
+                                <th>Addresse</th>
+                                <th>Pays</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
