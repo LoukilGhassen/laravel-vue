@@ -28,6 +28,10 @@
                             <th>description</th>
                             <td>{{ $room->description }}</td>
                         </tr>
+                        <tr>
+                            <th>Photo</th>
+                            <td><img src="{{ asset('public/img/'.$room->photo) }}" height="70"></td>
+                        </tr>
                     </table>
                 </div>
             </div>

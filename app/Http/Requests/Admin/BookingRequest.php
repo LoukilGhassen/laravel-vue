@@ -26,8 +26,8 @@ class BookingRequest extends FormRequest
         return [
             'customer_id' => 'required',
             'room_id' => 'required',
-            'time_from' => 'required|date_format:Y-m-d H:i',
-            'time_to' => 'required|date_format:Y-m-d H:i',
+            'time_from' => 'required|date_format:Y-m-d',
+            'time_to' => 'required|date_format:Y-m-d',
             'additional_information' => 'required',
             'status' => 'required',
         ];

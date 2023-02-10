@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.rooms.store') }}" method="POST">
+                <form action="{{ route('admin.rooms.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="room_number">{{ __('Room Number') }}</label>
@@ -53,6 +53,10 @@
                     <div class="form-group">
                         <label for="description">{{ __('Description') }}</label>
                         <textarea class="form-control" name="description" id="descriptioin" placeholder="description" cols="30" rows="10">{{ old('description') }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">photo</label>
+                        <input type="file" class="form-control" name="photo" placeholder="photo du chambre">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
                 </form>

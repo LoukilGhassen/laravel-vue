@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('', function () {
-    return view('auth.login');
-});
+    return view('welcome');
+});*/
 
 Route::group(['middleware' => ['isAdmin','auth'],'prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
@@ -47,3 +47,11 @@ Route::group(['middleware' => ['isAdmin','auth'],'prefix' => 'admin', 'as' => 'a
 
 Auth::routes();
 
+
+Route::get('/', [\App\Http\Controllers\MainController::class, 'roomslist']);
+
+Route::get('/search', [\App\Http\Controllers\MainController::class, 'search']);
+
+Route::get('/room/{id}',  [\App\Http\Controllers\MainController::class, 'oneroom']);
+
+Route::post('/bookin',  [\App\Http\Controllers\MainController::class, 'bookin']);

@@ -17,12 +17,13 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->datetime('time_from')->nullable();
-            $table->datetime('time_to')->nullable();
+            $table->date('time_from')->nullable();
+            $table->date('time_to')->nullable();
             $table->text('additional_information')->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->nullable();;
             $table->foreignIdFor(Customer::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Room::class)->constrained()->cascadeOnDelete();
+
             
             $table->timestamps();
             $table->softDeletes();

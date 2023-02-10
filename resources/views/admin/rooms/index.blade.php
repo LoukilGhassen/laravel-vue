@@ -37,6 +37,7 @@
                                 <th>Capacity</th>
                                 <th>Floor</th>
                                 <th>Category</th>
+                                <th>Photo</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -52,6 +53,7 @@
                                 <td>{{ $room->capacity }}</td>
                                 <td>{{ $room->floor }}</td>
                                 <td>{{ $room->category->name }}</td>
+                                <td><img src="{{ asset('public/img/'.$room->photo) }}" height="70"></td>
                                 <td>
                                     <a href="{{ route('admin.rooms.show', $room->id) }}" class="btn btn-info">
                                         <i class="fa fa-eye"></i>

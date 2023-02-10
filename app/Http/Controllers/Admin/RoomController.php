@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\RoomRequest;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Str;
 
 class RoomController extends Controller
 {
@@ -50,8 +51,16 @@ class RoomController extends Controller
     public function store(RoomRequest $request)
     {
         abort_if(Gate::denies('room_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+       
 
-        Room::create($request->validated());
+        $inputs=$request->all();
+        if($photo=$request->file("photo")){
+        $newfile=strtotime(date("Y-m-d")).".".$photo->getClientOriginalExtension();
+        $photo->move('public/img/',$newfile);
+        $inputs['photo']=$newfile;
+        }
+
+        Room::create($inputs);
 
         return redirect()->route('admin.rooms.index')->with([
             'message' => 'successfully created !',
@@ -99,8 +108,18 @@ class RoomController extends Controller
     public function update(RoomRequest $request, Room $room)
     {
         abort_if(Gate::denies('room_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $inputs=$request->all();
+        if($photo=$request->file("photo")){
+        $newfile=strtotime(date("Y-m-d-s")).".".$photo->getClientOriginalExtension();
+        $photo->move('public/img/',$newfile);
+        $inputs['photo']=$newfile;
+        if($request->oldphoto != "no-image.jpg" && file_exists('public/img/'.$request->oldphoto)){
+            unlink('public/img/'.$request->oldphoto);
+        }
+        unset($inputs['oldphoto']);
+        }
 
-        $room->update($request->validated());
+        $room->update($inputs);
 
         return redirect()->route('admin.rooms.index')->with([
             'message' => 'successfully updated !',
@@ -117,9 +136,11 @@ class RoomController extends Controller
     public function destroy(Room $room)
     {
         abort_if(Gate::denies('room_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        if($room->photo != 'no-image.jpg' && file_exists('public/img/'.$room->photo )){
+            unlink('public/img/'.$room->photo);
+        }
         $room->delete();
-
+        
         return redirect()->route('admin.rooms.index')->with([
             'message' => 'successfully deleted !',
             'alert-type' => 'danger'

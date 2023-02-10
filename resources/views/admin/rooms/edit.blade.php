@@ -1,6 +1,21 @@
 @extends('layouts.admin')
 
 @section('content')
+<script>
+    function passclick(fileid){
+    document.getElementById(fileid).click();
+}
+function loadimage(e,imageid)
+{
+    if(e.files[0]){
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById(imageid).setAttribute('src',e.target.result) ;
+        }
+        reader.readAsDataURL(e.files[0]) ;
+    }
+}
+</script>
 <div class="container-fluid">
 
     @if($errors->any())
@@ -24,7 +39,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.rooms.update', $room->id) }}" method="POST">
+                <form action="{{ route('admin.rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group">
@@ -38,6 +53,12 @@
                     <div class="form-group">
                         <label for="capacity">{{ __('Capacity') }}</label>
                         <input type="number" class="form-control" id="capacity" placeholder="{{ __('capacity') }}" name="capacity" value="{{ old('capacity', $room->capacity) }}" />
+                    </div>
+                    <div class="form-group">
+                            <label>photo</label>
+                            <input type="text" value="{{$room->photo}}" hidden name="oldphoto"/>
+                            <img src="{{ asset('public/img/'.$room->photo) }}" width="150px" height="150px" style="border-radius: 50%; margin-left:10px;" id="fdp_update" onclick="passclick('fdp_update_file')">
+                            <input type="file" name="photo" id="fdp_update_file" value="{{$room->photo}}" onchange="loadimage(this,'fdp_update')" class="form-control" style="display: none;">
                     </div>
                     <div class="form-group">
                         <label for="category">{{ __('Category') }}</label>

@@ -29,7 +29,8 @@ class RoomRequest extends FormRequest
             'description' => 'required',
             'category_id' => 'required|numeric',
             'price' => 'required|numeric',
-            'capacity' => 'required|numeric'
-        ];
+            'capacity' => 'required|numeric',
+            'photo'=>'image|mimes:jpeg,png,jpg,gif|max:2048',
+                ];
     }
 }

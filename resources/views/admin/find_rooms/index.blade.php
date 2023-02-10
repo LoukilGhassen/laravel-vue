@@ -55,6 +55,7 @@
                                 <th>Floor</th>
                                 <th>Description</th>
                                 <th>Category</th>
+                                <th>Photo</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -70,6 +71,7 @@
                                 <td>{{ $room->floor }}</td>
                                 <td>{{ $room->description }}</td>
                                 <td>{{ $room->category->name }}</td>
+                                <td><img src="{{ asset('public/img/'.$room->photo) }}" height="70"></td>
                                 <td>
                                     @can('booking_create')
                                         <button class="btn btn-info">

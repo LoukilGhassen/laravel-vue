@@ -21,6 +21,7 @@ class CreateRoomsTable extends Migration
             $table->text('description')->nullable();
             $table->text('price')->nullable();
             $table->text('capacity')->nullable();
+            $table->string('photo')->default('no-image.jpg');;
             $table->foreignIdFor(Category::class)->nullable()->constrained()->cascadeOnUpdate();
             
             $table->timestamps();
