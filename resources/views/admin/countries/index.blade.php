@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('country') }}
+                    {{ __('Pays') }}
                 </h6>
                 <div class="ml-auto">
                     @can('country_create')
@@ -18,7 +18,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New country') }}</span>
+                        <span class="text">{{ __('Nouveau pays') }}</span>
                     </a>
                     @endcan
                 </div>
@@ -31,8 +31,8 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
-                                <th>Name</th>
+                                <th>Nº</th>
+                                <th>Nom</th>
                                 <th>Short Code</th>
                                 <th>Action</th>
                             </tr>

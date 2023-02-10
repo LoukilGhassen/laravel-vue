@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('room') }}
+                    {{ __('Chambre') }}
                 </h6>
                 <div class="ml-auto">
                     @can('room_create')
@@ -18,7 +18,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New room') }}</span>
+                        <span class="text">{{ __('Nouvelle chambre') }}</span>
                     </a>
                     @endcan
                 </div>
@@ -31,12 +31,12 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
-                                <th>Room Number</th>
-                                <th>Price</th>
-                                <th>Capacity</th>
-                                <th>Floor</th>
-                                <th>Category</th>
+                                <th>Nº</th>
+                                <th>Numéro de chambre</th>
+                                <th>Prix</th>
+                                <th>Capacité</th>
+                                <th>Étage</th>
+                                <th>Catégorie</th>
                                 <th>Photo</th>
                                 <th>Action</th>
                             </tr>

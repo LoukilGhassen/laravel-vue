@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('booking') }}
+                    {{ __('Booking') }}
                 </h6>
                 <div class="ml-auto">
                     @can('booking_create')
@@ -31,12 +31,12 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
-                                <th>Customer</th>
-                                <th>Room</th>
-                                <th>Time From</th>
-                                <th>Time To</th>
-                                <th>Status</th>
+                                <th>Nº</th>
+                                <th>Client</th>
+                                <th>Chambre</th>
+                                <th>À partir de</th>
+                                <th>Jusqu'à</th>
+                                <th>Statut</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

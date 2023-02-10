@@ -14,7 +14,7 @@
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-12 d-flex " style="column-gap: 2rem; align-items: center;">
                             <div class="form-group">
-                                <label for="time_from">{{ __('Time From') }}</label>
+                                <label for="time_from">{{ __("À partir de") }}</label>
                                 <input type="text" class="form-control datetime" id="time_from" name="time_from" value="{{ old('time_from') }}"  required/>
                                 <p class="help-block"></p>
                                 @if($errors->has('time_from'))
@@ -24,7 +24,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="time_to">{{ __('Time to') }}</label>
+                                <label for="time_to">{{ __("Jusqu'à") }}</label>
                                 <input type="text" class="form-control datetime" id="time_to" name="time_to" value="{{ old('time_to') }}" required />
                                 <p class="help-block"></p>
                                 @if($errors->has('time_to'))
@@ -49,12 +49,12 @@
                                 <th width="10">
 
                                 </th>
-                                <th>No</th>
-                                <th>Room Number</th>
-                                <th>Price</th>
-                                <th>Floor</th>
+                                <th>Nº</th>
+                                <th>Numéro de chambre</th>
+                                <th>Prix</th>
+                                <th>Étage</th>
                                 <th>Description</th>
-                                <th>Category</th>
+                                <th>Catégorie</th>
                                 <th>Photo</th>
                                 <th>Action</th>
                             </tr>

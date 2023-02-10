@@ -7,7 +7,7 @@
 <section class="container">
     <div class="row">
         <div class="col-12">
-            <h2 class="py-2 text-white">Look for free rooms:</h2>
+            <h2 style="color: #6c757d;" class="py-2">Cherchez des chambres libres :</h2>
         </div>
     </div>
 
@@ -45,19 +45,19 @@
                     @endforeach
                     @endif
                     @if ($flag)
-                        <div class="badge bg-md bg-danger position-absolute top-0 end-0 p-2">Booked!</div>
+                        <div class="badge bg-md bg-danger position-absolute top-0 end-0 p-2">Réservée!</div>
                     @else 
-                        <div class="badge bg-md bg-success position-absolute top-0 end-0 p-2">Available</div>
+                        <div class="badge bg-md bg-success position-absolute top-0 end-0 p-2">Disponible</div>
                     @endif
 
                     <a href="/room/{{$room['id']}}" style="max-height:225px;overflow:hidden;background:url({{asset('public/img/'.$room['photo'])}}) center center;height: 225px; width: 100%; display: block;background-size:cover;">
                     </a>
                     <div class="card-body">
                         <p class="card-text"><a href="/room/{{$room['id']}}" class="text-dark text-decoration-none">{{$room['room_number']}}</a></p>
-                        <h2 class="card-title pricing-card-title text-end text-success ">${{$room['category']['name']}} <small class="text-muted text-secondary">/ day</small></h2>
+                        <h2 class="card-title pricing-card-title text-end text-success ">${{$room['category']['name']}} <small class="text-muted text-secondary">/ jour</small></h2>
                         <div class="d-flex justify-content-left align-items-center">
                             <div class="btn-group">
-                                <a type="button" class="btn btn-md btn-secondary text-white" href="/room/{{$room['id']}}">Details</a>                                
+                                <a type="button" class="btn btn-md btn-secondary text-white" href="/room/{{$room['id']}}">Détails</a>                                
                             </div>
                         </div>
                     </div>
