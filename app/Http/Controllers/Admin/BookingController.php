@@ -10,6 +10,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Admin\BookingRequest;
 use Symfony\Component\HttpFoundation\Response;
+use Validator;
+use Carbon\Carbon;
+use DateTime;
 
 class BookingController extends Controller
 {
@@ -23,7 +26,6 @@ class BookingController extends Controller
         abort_if(Gate::denies('booking_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $bookings = booking::all();
-
         return view('admin.bookings.index', compact('bookings'));
     }
 
@@ -37,7 +39,7 @@ class BookingController extends Controller
         abort_if(Gate::denies('booking_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $customers = Customer::get()->pluck('full_name', 'id');
-        $rooms = Room::get()->pluck('room_number', 'id');
+        $rooms = Room::get()->pluck('id', 'id');
         $roomId = $request->get('room_id');
         $timeFrom = $request->get('time_from');
         $timeTo = $request->get('time_to');
@@ -52,13 +54,41 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BookingRequest $request)
+    public function store(Request $request)
     {
         abort_if(Gate::denies('booking_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
+        $rules = [
+            'customer_id' => 'required',
+            'room_id' => 'required',
+            'time_from' => 'required|date_format:Y-m-d',
+            'time_to' => 'required|date_format:Y-m-d|after:time_from',
+            ];
 
-        Booking::create($request->validated());
+        $validate =  Validator::make($request->all(), $rules, []);
 
-        return redirect()->route('admin.bookings.index')->with([
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate->messages())->withInput($request->all());
+        }
+
+        $existingBooking = Booking::betweenDates($request->time_from, $request->time_to, $request->room_id)->first();
+
+        if ($existingBooking) {
+            $error = \Illuminate\Validation\ValidationException::withMessages([
+                'not availeble' => ['This room has been booked for the dates you have selected'],
+            ]);
+            throw $error;
+         }
+        
+        $bookin = new booking();
+        $bookin->customer_id = $request->customer_id;
+        $bookin->room_id = $request->room_id;
+        $bookin->time_from =$request->time_from;
+        $bookin->time_to = $request->time_to;
+       $bookin->save();
+
+        
+       return redirect()->route('admin.bookings.index')->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);

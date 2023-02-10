@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('Booking') }}
+                    {{ __('booking') }}
                 </h6>
                 <div class="ml-auto">
                     @can('booking_create')
@@ -31,12 +31,11 @@
                                 <th width="10">
 
                                 </th>
-                                <th>Nº</th>
-                                <th>Client</th>
-                                <th>Chambre</th>
-                                <th>À partir de</th>
-                                <th>Jusqu'à</th>
-                                <th>Statut</th>
+                                <th>No</th>
+                                <th>Customer</th>
+                                <th>Room</th>
+                                <th>Time From</th>
+                                <th>Time To</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -51,7 +50,6 @@
                                 <td>{{ $booking->room->room_number }}</td>
                                 <td>{{ $booking->time_from }}</td>
                                 <td>{{ $booking->time_to }}</td>
-                                <td>{{ $booking->status }}</td>
                                 <td>
                                     <a href="{{ route('admin.bookings.show', $booking->id) }}" class="btn btn-info">
                                         <i class="fa fa-eye"></i>

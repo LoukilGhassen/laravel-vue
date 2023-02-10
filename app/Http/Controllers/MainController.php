@@ -126,8 +126,6 @@ class MainController extends Controller {
 
     public function bookin(Request $request) {
 
-
-
         $rules = [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -136,15 +134,16 @@ class MainController extends Controller {
             'email' => 'required|email',
             'country_id' => 'required',
             'room_id' => 'required',
-            'time_from' => 'required|min:2|max:100',
-            'time_to' => 'required|min:2|max:100',
-            ];
+            'time_from' => 'required|date_format:Y-m-d',
+            'time_to' => 'required|date_format:Y-m-d|after:time_from',
+        ];
 
         $validate =  Validator::make($request->all(), $rules, []);
 
         if ($validate->fails()) {
             return redirect()->back()->withErrors($validate->messages())->withInput($request->all());
         }
+
         $email = $request->email;
         $data = [
             'first_name' => $request->first_name,
@@ -163,7 +162,7 @@ class MainController extends Controller {
             $new_customer = Customer::create($data);
             $customer_id = $new_customer->id;
         }
-        if (
+      /*  if (
             preg_match("/(\d+)\/(\d+)\/(\d+)/", $request->get('time_from'), $m1) &&
             preg_match("/(\d+)\/(\d+)\/(\d+)/", $request->get('time_to'), $m2)
         ) {
@@ -175,8 +174,8 @@ class MainController extends Controller {
             $m = $m2[1];
             $d = $m2[2];
             $stime_to = "$y-$m-$d";
-            echo($stime_from);
-            $sroom = booking::where('room_id', $request->get('room_id'))->where(
+
+            $sroom = Bookings::where('room_id', $request->get('room_id'))->where(
                 function ($query) use ($stime_from, $stime_to) {
                     $query
                         ->orwhere(
@@ -195,17 +194,11 @@ class MainController extends Controller {
                         );
                 }
             );
-            // dd($sroom);
-            // $query = str_replace(array('?'), array('%s'), $sroom->toSql());
-            // $query = vsprintf($query, $sroom->getBindings());
-            // // dd($query);
-            // dd($sroom->get()->count());
-
 
             $date1 = Carbon::createFromFormat('Y-m-d', $stime_from);
             $date2 = Carbon::createFromFormat('Y-m-d', $stime_to);
-
-
+            echo($date1);
+            dd($date1);
             if ($sroom->get()->count() > 0) {
                 $error = \Illuminate\Validation\ValidationException::withMessages([
                     'not availeble' => ['This room has been booked for the dates you have selected'],
@@ -222,15 +215,23 @@ class MainController extends Controller {
                 'dates' => ['Dates From or  To not set'],
             ]);
         }
+*/
 
+        $existingBooking = Booking::betweenDates($request->time_from, $request->time_to, $request->room_id)->first();
 
+        if ($existingBooking) {
+            $error = \Illuminate\Validation\ValidationException::withMessages([
+                'not availeble' => ['This room has been booked for the dates you have selected'],
+            ]);
+            throw $error;
+    }
 
         $bookin = new booking();
         $bookin->customer_id = $customer_id;
-        $bookin->room_id = $request->input('room_id');
-        $bookin->time_from = $stime_from;
-        $bookin->time_to = $stime_to;
-        $bookin->save();
-        return view('bookin', []);
+        $bookin->room_id = $request->room_id;
+        $bookin->time_from =  $request->time_from;
+        $bookin->time_to = $request->time_to;
+        $bookin->save(); 
+        return view('bookin', []); 
     }
 }

@@ -44,25 +44,13 @@
                     </div>
                     <div class="form-group">
                         <label for="time_from">{{ __('Time From') }}</label>
-                        <input type="date" class="form-control date" id="datepicker2" name="time_from" value="{{ old('time_from', $timeFrom) }}">
+                        <input type="date" class="form-control " id="time_from" name="time_from" value="{{ old('time_from', $timeFrom) }}">
                     </div>
                     <div class="form-group">
                         <label for="time_to">{{ __('Time to') }}</label>
-                        <input type="date" class="form-control date" id="datepicker2" name="time_to" value="{{ old('time_to', $timeTo) }}">
+                        <input type="date" class="form-control" id="time_to" name="time_to" value="{{ old('time_to', $timeTo) }}">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="additional_information">{{ __('Additional Information') }}</label>
-                        <textarea class="form-control" name="additional_information" id="additional_information"  cols="30" rows="10">{{ old('additional_information') }}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="status">{{ __('Status') }}</label>
-                        <select class="form-control" name="status" id="status">
-                                <option value="0">Created</option>
-                                <option value="1">Completed</option>
-                                <option value="2">Concelled</option>
-                        </select>
-                    </div>
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
                 </form>
             </div>

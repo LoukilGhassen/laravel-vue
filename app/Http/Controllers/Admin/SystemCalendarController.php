@@ -48,8 +48,8 @@ class SystemCalendarController extends Controller
                 $bookings[] = [
                     'title' => trim($source['prefix'] . " " . $model->{$source['field']}
                         . " " . $source['suffix']),
-                    'start' => $crudFieldValue,
-                    'end' => $crudFieldValueTo,
+                    'start' => $source['date_field'],
+                    'end' => $source['date_field'],
                     'url'   => route($source['route'], $model->id),
                 ];
             }

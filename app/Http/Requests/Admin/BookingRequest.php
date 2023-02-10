@@ -28,8 +28,6 @@ class BookingRequest extends FormRequest
             'room_id' => 'required',
             'time_from' => 'required|date_format:Y-m-d',
             'time_to' => 'required|date_format:Y-m-d',
-            'additional_information' => 'required',
-            'status' => 'required',
         ];
     }
 }

@@ -22,11 +22,29 @@ class Booking extends Model
         return $this->belongsTo(Room::class);
     }
 
+    public function scopeBetweenDates($query, $timeFrom, $timeTo, $roomId)
+    {
+        return $query->where('room_id', $roomId)
+            ->where(function ($query) use ($timeFrom, $timeTo) {
+                $query->where(function ($query) use ($timeFrom, $timeTo) {
+                    $query->whereBetween('time_from', [$timeFrom, $timeTo])
+                        ->orWhereBetween('time_to', [$timeFrom, $timeTo]);
+                })
+                ->orWhere(function ($query) use ($timeFrom, $timeTo) {
+                    $query->where('time_from', '<=', $timeFrom)
+                        ->where('time_to', '>=', $timeTo);
+                });
+            });
+    }
+
+
+
+
      /**
      * Set attribute to date format
      * @param $input
      */
-    public function setTimeFromAttribute($input)
+/*    public function setTimeFromAttribute($input)
     {
         if ($input != null && $input != '') {
             $this->attributes['time_from'] = Carbon::createFromFormat('Y-m-d H:i', $input)->format('Y-m-d H:i');
@@ -34,14 +52,14 @@ class Booking extends Model
             $this->attributes['time_from'] = null;
         }
     }
-
+*/
     /**
      * Get attribute from date format
      * @param $input
      *
      * @return string
      */
-    public function getTimeFromAttribute($input)
+ /*   public function getTimeFromAttribute($input)
     {
         $zeroDate = str_replace(['Y', 'm', 'd'], ['0000', '00', '00'],'Y-m-d H:i:s');
 
@@ -51,12 +69,12 @@ class Booking extends Model
             return '';
         }
     }
-
+*/
     /**
      * Set attribute to date format
      * @param $input
      */
-    public function setTimeToAttribute($input)
+ /*   public function setTimeToAttribute($input)
     {
         if ($input != null && $input != '') {
             $this->attributes['time_to'] = Carbon::createFromFormat('Y-m-d H:i', $input)->format('Y-m-d H:i');
@@ -64,14 +82,14 @@ class Booking extends Model
             $this->attributes['time_to'] = null;
         }
     }
-
+*/
     /**
      * Get attribute from date format
      * @param $input
      *
      * @return string
      */
-    public function getTimeToAttribute($input)
+ /*   public function getTimeToAttribute($input)
     {
         $zeroDate = str_replace(['Y', 'm', 'd'], ['0000', '00', '00'],'Y-m-d H:i');
 
@@ -81,12 +99,5 @@ class Booking extends Model
             return '';
         }
     }
-
-    public function getStatusAttribute($input) {
-        return [
-            0 => 'Created',
-            1 => 'Completed',
-            2 => 'Cancelled'
-        ][$input];
-    }
+*/
 }
