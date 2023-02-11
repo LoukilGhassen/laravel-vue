@@ -55,7 +55,8 @@ class RoomController extends Controller
 
         $inputs=$request->all();
         if($photo=$request->file("photo")){
-        $newfile=strtotime(date("Y-m-d")).".".$photo->getClientOriginalExtension();
+
+        $newfile=strtotime(now()).".".$photo->getClientOriginalExtension();
         $photo->move('public/img/',$newfile);
         $inputs['photo']=$newfile;
         }
@@ -63,7 +64,7 @@ class RoomController extends Controller
         Room::create($inputs);
 
         return redirect()->route('admin.rooms.index')->with([
-            'message' => 'successfully created !',
+            'message' => 'creé avec success !',
             'alert-type' => 'success'
         ]);
     }
@@ -122,7 +123,7 @@ class RoomController extends Controller
         $room->update($inputs);
 
         return redirect()->route('admin.rooms.index')->with([
-            'message' => 'successfully updated !',
+            'message' => 'modifié avec success !',
             'alert-type' => 'info'
         ]);
     }
@@ -142,7 +143,7 @@ class RoomController extends Controller
         $room->delete();
         
         return redirect()->route('admin.rooms.index')->with([
-            'message' => 'successfully deleted !',
+            'message' => 'supprimé avec success !',
             'alert-type' => 'danger'
         ]);
     }

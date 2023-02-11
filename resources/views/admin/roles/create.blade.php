@@ -6,7 +6,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ __('create role') }}</h1>
-        <a href="{{ route('admin.roles.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+        <a href="{{ route('admin.roles.index') }}" class="btn btn-primary btn-sm shadow-sm">Retour</a>
     </div>
 
     @if($errors->any())
@@ -36,7 +36,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
                 </form>
             </div>
         </div>

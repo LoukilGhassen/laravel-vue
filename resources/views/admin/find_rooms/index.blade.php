@@ -14,8 +14,8 @@
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-12 d-flex " style="column-gap: 2rem; align-items: center;">
                             <div class="form-group">
-                                <label for="time_from">{{ __('Time From') }}</label>
-                                <input type="text" class="form-control datetime" id="time_from" name="time_from" value="{{ old('time_from') }}"  required/>
+                                <label for="time_from">A partir</label>
+                                <input type="date" class="form-control" id="time_from" name="time_from" value="{{ old('time_from') }}"  required/>
                                 <p class="help-block"></p>
                                 @if($errors->has('time_from'))
                                     <p class="help-block">
@@ -24,8 +24,8 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="time_to">{{ __('Time to') }}</label>
-                                <input type="text" class="form-control datetime" id="time_to" name="time_to" value="{{ old('time_to') }}" required />
+                                <label for="time_to">Jusqu'a</label>
+                                <input type="date" class="form-control" id="time_to" name="time_to" value="{{ old('time_to') }}" required />
                                 <p class="help-block"></p>
                                 @if($errors->has('time_to'))
                                     <p class="help-block">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group" style="margin-top: 5px;">
                                 <label class="control-label"></label>
-                                <button type="submit" class="btn btn-success">Search</button>
+                                <button type="submit" class="btn btn-success">Chercher</button>
                             </div>
                         </div>
                     </div>
@@ -50,11 +50,11 @@
 
                                 </th>
                                 <th>No</th>
-                                <th>Room Number</th>
-                                <th>Price</th>
-                                <th>Floor</th>
+                                <th>Num Chambre</th>
+                                <th>Prix</th>
+                                <th>Etage</th>
                                 <th>Description</th>
-                                <th>Category</th>
+                                <th>Categorie</th>
                                 <th>Photo</th>
                                 <th>Action</th>
                             </tr>
@@ -84,7 +84,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="7" class="text-center">Pas de Donnees</td>
                             </tr>
                             @endforelse
                         </tbody>

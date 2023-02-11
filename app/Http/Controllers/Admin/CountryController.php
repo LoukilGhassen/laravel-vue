@@ -50,7 +50,7 @@ class CountryController extends Controller
         Country::create($request->validated());
 
         return redirect()->route('admin.countries.index')->with([
-            'message' => 'successfully created !',
+            'message' => 'creé avec success !',
             'alert-type' => 'success'
         ]);
     }
@@ -82,7 +82,7 @@ class CountryController extends Controller
         $country->update($request->validated());
 
         return redirect()->route('admin.countries.index')->with([
-            'message' => 'successfully updated !',
+            'message' => 'modifié avec success !',
             'alert-type' => 'info'
         ]);
     }
@@ -100,7 +100,7 @@ class CountryController extends Controller
         $country->delete();
 
         return redirect()->route('admin.countries.index')->with([
-            'message' => 'successfully deleted !',
+            'message' => 'supprimé avec success !',
             'alert-type' => 'danger'
         ]);
     }

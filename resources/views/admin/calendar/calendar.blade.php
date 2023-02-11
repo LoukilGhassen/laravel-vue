@@ -4,16 +4,15 @@
 <div class="container">    
     <div class="card">
         <div class="card-header">
-            Calendar
+            Calendrier
         </div>
-
         <div class="card-body">
             <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
             <form>
                 <div class="row">
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label for="room_id">Room</label>
+                            <label for="room_id">Chambre</label>
                             <select class="form-control select2" name="room_id" id="room_id">
                                 @foreach($rooms as $id => $room)
                                     <option value="{{ $id }}" {{ request()->input('room_id') == $id ? 'selected' : '' }}>{{ $room }}</option>
@@ -23,7 +22,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label for="customer_id">customer</label>
+                            <label for="customer_id">Client</label>
                             <select class="form-control select2" name="customer_id" id="customer_id">
                                 @foreach($customers as $id => $customer)
                                     <option value="{{ $id }}" {{ request()->input('customer_id') == $id ? 'selected' : '' }}>{{ $customer }}</option>
@@ -33,7 +32,7 @@
                     </div>
                     <div class="col-md-2">
                         <button class="btn btn-primary mt-4">
-                            Filter
+                            Filtrer
                         </button>
                     </div>
                 </div>

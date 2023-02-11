@@ -15,7 +15,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New role') }}</span>
+                        <span class="text">{{ __('Nouveau role') }}</span>
                     </a>
                     @endcan
                 </div>
@@ -60,7 +60,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="7" class="text-center">Pas de Donnees</td>
                             </tr>
                             @endforelse
                         </tbody>

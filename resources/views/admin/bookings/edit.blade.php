@@ -16,10 +16,10 @@
 <!-- Content Row -->
         <div class="card shadow">
             <div class="card-header py-3 d-flex">
-            <h1 class="h3 mb-0 text-gray-800">{{ __('edit booking') }}</h1>
+            <h1 class="h3 mb-0 text-gray-800">modifier reservation</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin.bookings.index') }}" class="btn btn-primary">
-                        <span class="text">{{ __('Go Back') }}</span>
+                        <span class="text">Retour</span>
                     </a>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="customer">{{ __('Customer') }}</label>
+                        <label for="customer">Client</label>
                         <select class="form-control" name="customer_id" id="customer">
                             @foreach($customers as $id => $customer)
                                 <option value="{{ $id }}">{{ $customer }}</option>
@@ -36,7 +36,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="room">{{ __('Room') }}</label>
+                        <label for="room">Chambre</label>
                         <select class="form-control" name="room_id" id="room">
                             @foreach($rooms as $id => $room)
                                 <option value="{{ $id }}">{{ $room }}</option>
@@ -44,14 +44,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="time_from">{{ __('Time From') }}</label>
+                        <label for="time_from">De</label>
                         <input type="date" class="form-control " id="time_from" name="time_from" value="{{ old('time_from', $booking->time_from) }}" />
                     </div>
                     <div class="form-group">
-                        <label for="time_to">{{ __('Time to') }}</label>
+                        <label for="time_to">A</label>
                         <input type="date" class="form-control" id="time_to" name="time_to" value="{{ old('time_to', $booking->time_from) }}">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
                 </form>
             </div>
         </div>

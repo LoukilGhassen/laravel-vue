@@ -11,12 +11,20 @@
 
     
 </head>
+<style>
+    .bodyclass{
+        background-color:#1b1b46;
+    }
+</style>
 
-<body class="bg-dark">
+<body class="bodyclass">
     <div class="d-flex flex-column flex-md-row  align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom box-shadow justify-content-between">
-        <h1 class="my-0 mr-md-auto font-weight-normal text-white">HOTEL</h1>
+        <div class="d-flex align-content-center">
+        <img src="{{ asset('public/img/logo-admin.png') }}" alt=""height="50">
+        <h4 class="ms-2 my-0 mr-md-auto font-weight-normal text-white">Tunisie Booking</h4>
+        </div>
         <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-white" href="/">Home</a>
+            <a class="p-2 text-white" href="/">Acceuil</a>
         </nav>
     </div>
 

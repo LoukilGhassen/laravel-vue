@@ -50,7 +50,7 @@ class CategoryController extends Controller
         Category::create($request->validated());
 
         return redirect()->route('admin.categories.index')->with([
-            'message' => 'successfully created !',
+            'message' => 'Creé avec success !',
             'alert-type' => 'success'
         ]);
     }
@@ -82,7 +82,7 @@ class CategoryController extends Controller
         $category->update($request->validated());
 
         return redirect()->route('admin.categories.index')->with([
-            'message' => 'successfully updated !',
+            'message' => 'modifié avec success !',
             'alert-type' => 'info'
         ]);
     }
@@ -100,7 +100,7 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()->route('admin.categories.index')->with([
-            'message' => 'successfully deleted !',
+            'message' => 'supprimé avec success !',
             'alert-type' => 'danger'
         ]);
     }

@@ -53,7 +53,7 @@ class CustomerController extends Controller
         Customer::create($request->validated());
 
         return redirect()->route('admin.customers.index')->with([
-            'message' => 'successfully created !',
+            'message' => 'creé avec success !',
             'alert-type' => 'success'
         ]);
     }
@@ -87,7 +87,7 @@ class CustomerController extends Controller
         $customer->update($request->validated());
 
         return redirect()->route('admin.customers.index')->with([
-            'message' => 'successfully updated !',
+            'message' => 'modifié avec success !',
             'alert-type' => 'info'
         ]);
     }
@@ -105,7 +105,7 @@ class CustomerController extends Controller
         $customer->delete();
 
         return redirect()->route('admin.customers.index')->with([
-            'message' => 'successfully deleted !',
+            'message' => 'supprimé avec success !',
             'alert-type' => 'danger'
         ]);
     }

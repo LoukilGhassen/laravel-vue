@@ -16,10 +16,10 @@
 <!-- Content Row -->
         <div class="card shadow">
             <div class="card-header py-3 d-flex">
-            <h1 class="h3 mb-0 text-gray-800">{{ __('create booking') }}</h1>
+            <h1 class="h3 mb-0 text-gray-800">creer Reservation</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin.bookings.index') }}" class="btn btn-primary">
-                        <span class="text">{{ __('Go Back') }}</span>
+                        <span class="text">Retour</span>
                     </a>
                 </div>
             </div>
@@ -43,15 +43,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="time_from">{{ __('Time From') }}</label>
+                        <label for="time_from">A partir</label>
                         <input type="date" class="form-control " id="time_from" name="time_from" value="{{ old('time_from', $timeFrom) }}">
                     </div>
                     <div class="form-group">
-                        <label for="time_to">{{ __('Time to') }}</label>
+                        <label for="time_to">Jusqu'a</label>
                         <input type="date" class="form-control" id="time_to" name="time_to" value="{{ old('time_to', $timeTo) }}">
                     </div>
                     
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
                 </form>
             </div>
         </div>

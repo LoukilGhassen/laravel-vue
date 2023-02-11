@@ -16,7 +16,7 @@ class SystemCalendarController extends Controller
             'model'      => Booking::class,
             'date_field' => 'time_from',
             'date_field_to' => 'time_to',
-            'field'      => 'additional_information',
+            'field'      => 'time_from',
             'prefix'     => '',
             'suffix'     => '',
             'route'      => 'admin.bookings.edit',
@@ -40,16 +40,15 @@ class SystemCalendarController extends Controller
             foreach ($models as $model) {
                 $crudFieldValue = $model->getOriginal($source['date_field']);
                 $crudFieldValueTo = $model->getOriginal($source['date_field_to']);
-
                 if (!$crudFieldValue && $crudFieldValueTo) {
                     continue;
                 }
 
                 $bookings[] = [
-                    'title' => trim($source['prefix'] . " " . $model->{$source['field']}
+                    'title' => trim($source['prefix'] . " " . $model->customer->full_name . " ". $model->room->room_number
                         . " " . $source['suffix']),
-                    'start' => $source['date_field'],
-                    'end' => $source['date_field'],
+                    'start' =>$crudFieldValue,
+                    'end' => $crudFieldValueTo,
                     'url'   => route($source['route'], $model->id),
                 ];
             }

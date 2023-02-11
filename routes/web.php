@@ -50,7 +50,7 @@ Auth::routes();
 
 Route::get('/', [\App\Http\Controllers\MainController::class, 'roomslist']);
 
-Route::get('/search', [\App\Http\Controllers\MainController::class, 'search']);
+Route::post('/search', [\App\Http\Controllers\MainController::class, 'search']);
 
 Route::get('/room/{id}',  [\App\Http\Controllers\MainController::class, 'oneroom']);
 

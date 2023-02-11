@@ -18,7 +18,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New room') }}</span>
+                        <span class="text">Nouveau Chambre </span>
                     </a>
                     @endcan
                 </div>
@@ -32,11 +32,11 @@
 
                                 </th>
                                 <th>No</th>
-                                <th>Room Number</th>
-                                <th>Price</th>
-                                <th>Capacity</th>
-                                <th>Floor</th>
-                                <th>Category</th>
+                                <th>Num Chambre</th>
+                                <th>Prix</th>
+                                <th>Etage</th>
+                                <th>Description</th>
+                                <th>Categorie</th>
                                 <th>Photo</th>
                                 <th>Action</th>
                             </tr>
@@ -49,7 +49,7 @@
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $room->room_number }}</td>
-                                <td>${{ $room->price }}</td>
+                                <td>{{ $room->price }}</td>
                                 <td>{{ $room->capacity }}</td>
                                 <td>{{ $room->floor }}</td>
                                 <td>{{ $room->category->name }}</td>
@@ -72,7 +72,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="9" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="9" class="text-center">Pas de Donnees</td>
                             </tr>
                             @endforelse
                         </tbody>

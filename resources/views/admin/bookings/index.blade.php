@@ -18,7 +18,7 @@
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New booking') }}</span>
+                        <span class="text">Nouveau Reservation</span>
                     </a>
                     @endcan
                 </div>
@@ -32,10 +32,10 @@
 
                                 </th>
                                 <th>No</th>
-                                <th>Customer</th>
-                                <th>Room</th>
-                                <th>Time From</th>
-                                <th>Time To</th>
+                                <th>Client</th>
+                                <th>Chambre</th>
+                                <th>A partir</th>
+                                <th>Jusqu'a</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -68,7 +68,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="9" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="9" class="text-center">Pas de Donnees</td>
                             </tr>
                             @endforelse
                         </tbody>

@@ -19,7 +19,7 @@
             <h1 class="h3 mb-0 text-gray-800">{{ __('create customer') }}</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin.customers.index') }}" class="btn btn-primary">
-                        <span class="text">{{ __('Go Back') }}</span>
+                        <span class="text">Retour</span>
                     </a>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <label for="address">{{ __('Address') }}</label>
                         <textarea class="form-control" name="address" id="address" placeholder="address" cols="30" rows="10">{{ old('address', $customer->address) }}</textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
                 </form>
             </div>
         </div>

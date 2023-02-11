@@ -19,10 +19,10 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                UTILISATEURS</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$userCount }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-hotel fa-2x text-gray-300"></i>
+                            <i class="fas fa-hotel fa-2x text-gray-300"></i> 
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                SOLDE</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                Clients</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$customerCount}} </div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -53,11 +53,11 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">EN ATTENTE
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Chambres
                             </div>
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
-                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{$roomCount}}</div>
                                 </div>
                             </div>
                         </div>
@@ -76,8 +76,8 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                SUCCCÈSS</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                Reservation</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$bookingCount}}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-check fa-2x text-gray-300"></i>

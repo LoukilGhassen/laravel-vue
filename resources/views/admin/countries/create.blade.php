@@ -19,7 +19,7 @@
             <h1 class="h3 mb-0 text-gray-800">{{ __('create country') }}</h1>
                 <div class="ml-auto">
                     <a href="{{ route('admin.countries.index') }}" class="btn btn-primary">
-                        <span class="text">{{ __('Go Back') }}</span>
+                        <span class="text">Retour</span>
                     </a>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                         <label for="shortcode">{{ __('Short Code') }}</label>
                         <input type="text" class="form-control" id="shortcode" placeholder="{{ __('shortcode') }}" name="shortcode" value="{{ old('shortcode') }}" />
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Save') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enregistrer</button>
                 </form>
             </div>
         </div>

@@ -9,10 +9,10 @@
         <div class="col-md-7 order-md-2">
           <h2 class="featurette-heading">{{$room[0]['name']}}</span></h2>
           <hr />
-          <div class="lead">Floor: <span class="text-warning fw-bold">{!! $room[0]['floor'] !!}</span></div>
-          <div class="lead">Capacity: <span class="text-warning fw-bold">{!! $room[0]['capacity'] !!}</span></div>
+          <div class="lead">Etage: <span class="text-warning fw-bold">{!! $room[0]['floor'] !!}</span></div>
+          <div class="lead">Capacité: <span class="text-warning fw-bold">{!! $room[0]['capacity'] !!}</span></div>
           <hr />
-          <div class="card-title pricing-card-title text-end text-success h1"><span class="text-success text-lg fw-bold">${{$room[0]['price']}}</div>
+          <div class="card-title pricing-card-title text-end text-info h1"><span class="text-info text-lg fw-bold">{{$room[0]['price']}} Dt</div>
           <hr />
           <p class="lead">{{$room[0]['description']}}</p>
         </div>
@@ -24,7 +24,7 @@
 <section class="container py-5 bg-light" id="bookingform">
     <div class="row pt-3">
         <div class="col-12 text-center">
-            <h2 class="text-success">Book In!</h2>
+            <h2 class="text-info">Resevation!</h2>
         </div>
     </div>
     @if ($errors->any())
@@ -40,7 +40,7 @@
         </div>
     </div>
     @endif
-    <form  method="POST" class="bg-success pb-3" action="/bookin">
+    <form  method="POST" class="bg-info pb-3" action="/bookin">
     @csrf
     <input type="hidden" name="room_id" value="{{$room[0]['id']}}"/>
     <div class="row pt-3">
@@ -94,7 +94,7 @@
     <div class="row pt-3">
         <div class="col-3"></div>
         <div class="col-2">
-            <button class="btn btn-md btn-warning text-dark" type="submit">BookIn</button>
+            <button class="btn btn-md btn-success " type="submit">Reserver</button>
         </div>
     </div>          
   </form>

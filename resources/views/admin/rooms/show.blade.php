@@ -10,18 +10,18 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('view room') }}
+                    Chambre
                 </h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover" cellspacing="0" width="100%">
                         <tr>
-                            <th>room number</th>
+                            <th>Num chambre</th>
                             <td>{{ $room->room_number }}</td>
                         </tr>
                         <tr>
-                            <th>floor</th>
+                            <th>Etage</th>
                             <td>{{ $room->floor }}</td>
                         </tr>
                         <tr>
@@ -40,7 +40,7 @@
         <!-- Tab panes -->
         <div class="card-header py-3 mt-5 bg-info text-white d-flex">
                 <h6 class="m-0 font-weight-bold text-white">
-                    {{ __('view Booking') }}
+                    Reservation
                 </h6>
             </div>
         <div class="card-body">
@@ -49,13 +49,12 @@
                     <thead>
                     <tr>
                         <th width="10"></th>
-                        <th>customer</th>
-                        <th>room number</th>
-                        <th>price</th>
-                        <th>capacity</th>
-                        <th>time-from</th>
-                        <th>time-to</th>
-                        <th>additional-information</th>
+                        <th>Client</th>
+                        <th>Num Chambre</th>
+                        <th>Prix</th>
+                        <th>capacité</th>
+                        <th>De</th>
+                        <th>A</th>
                         <th>action</th>
                     </tr>
                     </thead>
@@ -66,11 +65,10 @@
                                 <td></td>
                                 <td field-key='customer'>{{ $booking->customer->full_name  }}</td>
                                 <td field-key='room'>{{ $booking->room->room_number }}</td>
-                                <td field-key='room'>{{ $booking->price }}</td>
-                                <td field-key='room'>{{ $booking->capacity }}</td>
+                                <td field-key='room'>{{ $booking->room->price }}</td>
+                                <td field-key='room'>{{ $booking->room->capacity }}</td>
                                 <td field-key='time_from'>{{ $booking->time_from }}</td>
                                 <td field-key='time_to'>{{ $booking->time_to }}</td>
-                                <td field-key='additional_information'>{!! $booking->additional_information !!}</td>
                                 <td>
                                     @can('booking_view')
                                         <a href="{{ route('admin.bookings.show',[$booking->id]) }}"
@@ -93,7 +91,7 @@
                             </tr>
                         @empty
                         <tr>
-                            <td colspan="10">data not found !</td>
+                            <td colspan="10">Pas de donneé</td>
                         </tr>
                         @endforelse
                     </tbody>

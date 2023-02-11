@@ -67,7 +67,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="9" class="text-center">{{ __('Data Empty') }}</td>
+                                <td colspan="9" class="text-center">Pas de Donnees</td>
                             </tr>
                             @endforelse
                         </tbody>

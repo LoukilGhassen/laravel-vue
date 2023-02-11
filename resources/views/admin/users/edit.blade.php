@@ -5,8 +5,8 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('edit user')}}</h1>
-        <a href="{{ route('admin.users.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
+        <h1 class="h3 mb-0 text-gray-800">modifier Uttilisateur</h1>
+        <a href="{{ route('admin.users.index') }}" class="btn btn-primary btn-sm shadow-sm">Retour</a>
     </div>
 
     @if($errors->any())

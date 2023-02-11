@@ -47,7 +47,7 @@ class UserController extends Controller
         $user->roles()->sync($request->input('roles'));
 
         return redirect()->route('admin.users.index')->with([
-            'message' => 'successfully created !',
+            'message' => 'creé avec success !',
             'alert-type' => 'success'
         ]);
     }
@@ -78,7 +78,7 @@ class UserController extends Controller
         $user->roles()->sync($request->input('roles'));
 
         return redirect()->route('admin.users.index')->with([
-            'message' => 'successfully updated !',
+            'message' => 'modifié avec success !',
             'alert-type' => 'info'
         ]);
     }
@@ -94,7 +94,7 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('admin.users.index')->with([
-            'message' => 'successfully deleted !',
+            'message' => 'supprimé avec success !',
             'alert-type' => 'danger'
         ]);
     }

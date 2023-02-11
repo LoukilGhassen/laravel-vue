@@ -75,7 +75,7 @@ class BookingController extends Controller
 
         if ($existingBooking) {
             $error = \Illuminate\Validation\ValidationException::withMessages([
-                'not availeble' => ['This room has been booked for the dates you have selected'],
+                'not availeble' => ['Chambre reservé pour la date selectionné'],
             ]);
             throw $error;
          }
@@ -89,7 +89,7 @@ class BookingController extends Controller
 
         
        return redirect()->route('admin.bookings.index')->with([
-            'message' => 'successfully created !',
+            'message' => 'Creé avec success !',
             'alert-type' => 'success'
         ]);
     }
@@ -137,7 +137,7 @@ class BookingController extends Controller
         $booking->update($request->validated());
 
         return redirect()->route('admin.bookings.index')->with([
-            'message' => 'successfully updated !',
+            'message' => 'modifié avec success !',
             'alert-type' => 'info'
         ]);
     }
@@ -155,7 +155,7 @@ class BookingController extends Controller
         $booking->delete();
 
         return redirect()->route('admin.bookings.index')->with([
-            'message' => 'successfully deleted !',
+            'message' => 'supprimé avec success !',
             'alert-type' => 'danger'
         ]);
     }
