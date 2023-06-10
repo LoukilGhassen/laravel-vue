@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Country;
 use App\Models\Customer;
 use App\Models\Booking;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 class MainController extends Controller {
 
 
@@ -128,6 +130,7 @@ class MainController extends Controller {
         $bookin->time_from =  $request->time_from;
         $bookin->time_to = $request->time_to;
         $bookin->save(); 
+        Mail::to($email)->send(new TestMail());
         return view('bookin', []); 
     }
 }
